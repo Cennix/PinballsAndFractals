@@ -9,8 +9,18 @@ import com.mbax2dh2.PinballMachine.Vector2D;
  */
 public class Wall extends AStatic
 {
+    Vector2D wallSize;
+    CollisionBox colBox;
     protected Wall(Vector2D position)
     {
         super(position);
+        wallSize = new Vector2D();
     }
+    public Wall(Vector2D position, Vector2D size)
+    {
+        super(position);
+        wallSize = size;
+    }
+
+
 }
