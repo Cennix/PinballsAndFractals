@@ -8,11 +8,19 @@ import com.mbax2dh2.PinballMachine.Vector2D;
  */
 public class CollisionBox
 {
-    Vector2D corner;
-    Vector2D corner2;
+    Vector2D cornerBL; // the bottom left hand corner of the collision box
+    Vector2D cornerTR; // the top right hand corner of the collision box
 
-    public CollisionBox ( Vector2D corner, Vector2D corner2)
+    public CollisionBox ( Vector2D cornerBL, Vector2D cornerTR)
     {
+        this.cornerBL = cornerBL;
+        this.cornerTR = cornerTR;
     }
+    public CollisionBox()
+    {
+        this.cornerBL = new Vector2D();
+        this.cornerTR = new Vector2D();
+    }
+
 }
-}
+
