@@ -1,0 +1,16 @@
+gravity = 9.81
+moving = true
+
+function Loop
+
+  if(moving)
+  {
+    velocity_Y = velocity_Y - gravity
+  }
+  if(movingObj_Y - velocity_Y > ground_Y)
+  {
+    movingObj_Y = movingObj_Y + velocity_Y
+  }
+  
+  movingObj_X = movingObj_X + velocity_X
+  

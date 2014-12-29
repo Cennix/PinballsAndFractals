@@ -1,0 +1,5 @@
+gameloop
+
+elapsedSeconds = now - starttime
+fps = numframes / elapsedSeconds
+dTime = freqency / fps

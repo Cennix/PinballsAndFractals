@@ -1,0 +1,20 @@
+
+movement()
+{
+
+angle = 20
+speed = 30
+
+scale_X = cos(angle)
+scale_Y = sin(angle)
+
+velocity_X = speed * scale_X
+velocity_Y = speed * scale_Y
+
+function GameLoop()
+{
+  movingObj_X = movingObj_X * velocity_X
+  movingObj_Y = movingObj_Y * velocity_Y
+}
+
+}

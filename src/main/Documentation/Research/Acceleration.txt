@@ -1,0 +1,17 @@
+angle = 20
+movingObj_Speed = 20
+movingObj_acceleration = 2
+
+scale_X = cos(angle)
+scale_Y = sin(angle)
+
+GameLoop
+{
+movingObj_speed = movingObj_speed + movingObj_acceleration
+
+movingObj_velocity_X = (movingObj_speed * scale_X)
+movingObj_velocity_Y = (movingObj_speed * scale_Y)
+
+movingObj_X = movingObj_X + movingObj_velocity_X
+movingObj_Y = movingObj_Y + movingObj_velocity_Y
+}
