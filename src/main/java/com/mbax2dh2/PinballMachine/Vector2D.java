@@ -26,7 +26,7 @@ public class Vector2D
         return X;
     }
 
-    public void setX(double x)
+    public void setX(int x)
     {
         X = x;
     }
@@ -36,7 +36,7 @@ public class Vector2D
         return Y;
     }
 
-    public void setY(double y)
+    public void setY(int y)
     {
         Y = y;
     }
@@ -76,7 +76,7 @@ public class Vector2D
     }
 
     //divide this vector by a factor Val
-    public void div(double val)
+    public void div(int val)
     {
         this.X /= val;
         this.Y /= val;
@@ -94,5 +94,10 @@ public class Vector2D
         double factor = Math.sqrt(magSq());
         this.X /= factor;
         this.Y /= factor;
+    }
+
+    public Vector2D clone()
+    {
+        return new Vector2D(this.getX(), this.getY());
     }
 }

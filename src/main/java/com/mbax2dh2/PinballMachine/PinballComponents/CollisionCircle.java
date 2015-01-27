@@ -8,9 +8,9 @@ import com.mbax2dh2.PinballMachine.Vector2D;
  */
 public class CollisionCircle
 {
-    Vector2D centre;
-    double radius;
-    public CollisionCircle()
+    Vector2D centre; // the centre of the circle
+    double radius; // the radius of the collision circle
+    public CollisionCircle(Vector2D centre)
     {
         centre = new Vector2D();
         radius = 0.0;

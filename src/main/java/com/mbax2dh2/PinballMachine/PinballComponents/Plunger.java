@@ -13,4 +13,9 @@ public class Plunger extends AStatic
     {
         super(position);
     }
+
+    public void collisionEvent(AObject objCollided)
+    {
+        objCollided.velocity.add(new Vector2D(0,50));
+    }
 }
