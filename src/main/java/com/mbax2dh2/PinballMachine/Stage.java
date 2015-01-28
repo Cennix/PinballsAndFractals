@@ -2,6 +2,7 @@ package com.mbax2dh2.PinballMachine;
 
 import javax.swing.*;
 import java.awt.*;
+import com.mbax2dh2.PinballMachine.PinballComponents.*;
 
 /**
  * Created by Daniel on 01/10/2014.
@@ -9,6 +10,12 @@ import java.awt.*;
  */
 public class Stage extends JPanel
 {
+    Pinball pinball;
+    Wall walls;
+    Bumper bumpers;
+    AStatic triggers;
+    AStatic plunger;
+    CollisionMap collisionMap;
     public static void main(String[] args)
     {
         JFrame frame = new JFrame("Pinball machine");
