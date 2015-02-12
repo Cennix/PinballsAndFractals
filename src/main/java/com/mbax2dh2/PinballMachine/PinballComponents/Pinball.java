@@ -47,4 +47,16 @@ public class Pinball extends AMovable
     {
         return false;
     }
+
+    public double getRadius()
+    {
+        return radius;
+    }
+
+    public void setRadius(double radius)
+    {
+        this.radius = radius;
+    }
+
+
 }

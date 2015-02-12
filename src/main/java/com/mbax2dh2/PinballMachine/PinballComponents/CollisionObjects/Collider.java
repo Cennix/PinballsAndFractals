@@ -1,4 +1,6 @@
-package com.mbax2dh2.PinballMachine.PinballComponents;
+package com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects;
+
+import com.mbax2dh2.PinballMachine.PinballComponents.Pinball;
 
 import java.awt.*;
 
@@ -6,18 +8,18 @@ import java.awt.*;
  * Created by Daniel on 28/01/2015.
  * Updated last on 28/01/2015
  */
-public class Collider
+public abstract class Collider
 {
     // the class to hold the methods used in the collision map for the project
     void response() {}
 
-    boolean collided(Pinball ball)
+    public boolean collided(Pinball ball)
     {
         return false;
     }
-    public boolean boundOff(Pinball ball)
+    public void bounceOff(Pinball ball)
     {
-        return false;
+
     }
 
     void draw(Graphics g)

@@ -26,7 +26,7 @@ public class Vector2D
         return X;
     }
 
-    public void setX(int x)
+    public void setX(double x)
     {
         X = x;
     }
@@ -36,7 +36,7 @@ public class Vector2D
         return Y;
     }
 
-    public void setY(int y)
+    public void setY(double y)
     {
         Y = y;
     }
