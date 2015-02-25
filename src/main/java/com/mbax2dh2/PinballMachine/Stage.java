@@ -15,14 +15,16 @@ public class Stage extends JPanel
     Bumper bumpers;
     AStatic triggers;
     AStatic plunger;
-    CollisionMap collisionMap;
+
+    public Stage(boolean graphics, boolean gravity, boolean friction)
+    {
+
+    }
+
     public static void main(String[] args)
     {
         JFrame frame = new JFrame("Pinball machine");
-        frame.add(new Stage());
-        frame.setSize(480, 640);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
     }
 
     @Override

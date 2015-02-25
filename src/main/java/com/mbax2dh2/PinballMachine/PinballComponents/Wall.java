@@ -22,11 +22,4 @@ public class Wall extends AStatic
         super(position);
         wallSize = size;
     }
-
-    public void paint(Graphics graphics)
-    {
-
-    }
-
-
 }
