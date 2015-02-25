@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48926fd2-d721-4f81-b2d9-d348365fcd37" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PinballsAndFractals.iws" afterPath="$PROJECT_DIR$/PinballsAndFractals.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/PinballComponents/Plunger.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/PinballComponents/Plunger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Stage.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Stage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/PinballComponents/Wall.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/PinballComponents/Wall.java" />
     </list>
     <ignored path="PinballsAndFractals.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -279,7 +275,7 @@
       <file leaf-file-name="Stage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Stage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37904125" vertical-offset="0" max-vertical-offset="897">
+            <state vertical-scroll-proportion="0.3794643" vertical-offset="0" max-vertical-offset="896">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
@@ -900,7 +896,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423754805526</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Finished off plunger, started wall, implemented more of Main and Stage, added arguements to these">
+      <created>1424875706752</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1424875706752</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -930,6 +932,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -948,7 +951,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1012,7 +1014,8 @@
     <MESSAGE value="Modified many things" />
     <MESSAGE value="Swapped back to using an abstract collision object" />
     <MESSAGE value="implemented the main method" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented the main method" />
+    <MESSAGE value="Finished off plunger, started wall, implemented more of Main and Stage, added arguements to these" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished off plunger, started wall, implemented more of Main and Stage, added arguements to these" />
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>
@@ -1471,7 +1474,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mbax2dh2/PinballMachine/Stage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37904125" vertical-offset="0" max-vertical-offset="897">
+        <state vertical-scroll-proportion="0.3794643" vertical-offset="0" max-vertical-offset="896">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
