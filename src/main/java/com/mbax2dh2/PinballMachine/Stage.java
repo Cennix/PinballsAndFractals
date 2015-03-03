@@ -2,7 +2,10 @@ package com.mbax2dh2.PinballMachine;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
 import com.mbax2dh2.PinballMachine.PinballComponents.*;
+import com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects.CollisionMap;
 import com.mbax2dh2.PinballMachine.PinballComponents.Trigger;
 
 /**
@@ -16,15 +19,18 @@ public class Stage extends JPanel
     Bumper[] bumpers = new Bumper[5];
     Trigger[] triggers = new Trigger[5];
     Plunger[] plunger = new Plunger[5];
+    CollisionMap map;
+
+
 
     boolean graphics, gravity, friction = false;
 
-    public Stage(boolean graphics, boolean gravity, boolean friction)
+    public Stage(boolean graphics, boolean gravity, boolean friction) throws IOException
     {
         this.graphics = graphics;
         this.gravity = gravity;
         this.friction = friction;
-
+        map = new CollisionMap("src/main/Resources/CollisionMap/Map.jpg");
     }
 
     public void add(AObject object) throws Exception
@@ -134,12 +140,6 @@ public class Stage extends JPanel
         }
 
 
-
-    }
-
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame("Pinball machine");
 
     }
 

@@ -11,15 +11,25 @@ import java.awt.*;
  */
 public class Wall extends AStatic
 {
-    Vector2D wallSize;
+    Vector2D minXY, maxXY;
     protected Wall(Vector2D position)
     {
         super(position);
-        wallSize = new Vector2D();
+        minXY = new Vector2D();
     }
-    public Wall(Vector2D position, Vector2D size)
+    public Wall(Vector2D position, Vector2D minXY, Vector2D maxXY)
     {
         super(position);
-        wallSize = size;
+        this.minXY = minXY;
+        this.maxXY = maxXY;
+    }
+
+    public boolean isCollided(Pinball pinball)
+    {
+        if(pinball.getX() < this.maxXY.getX() && pinball.getX() > this.minXY.getX() && pinball.getY() < this.maxXY.getY()
+                && pinball.getY() > this.minXY.getY())
+            return true;
+        else
+            return false;
     }
 }
