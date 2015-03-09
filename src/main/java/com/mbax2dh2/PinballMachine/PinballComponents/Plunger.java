@@ -23,7 +23,7 @@ public class Plunger extends AStatic
         objCollided.velocity.add(new Vector2D(0,50));
     }
 
-    public boolean iscollided(Pinball pinball)
+    public boolean collided(Pinball pinball)
     {
         if(pinball.getX() < this.maxXY.getX() && pinball.getX() > this.minXY.getX() && pinball.getY() < this.maxXY.getY()
                 && pinball.getY() > this.minXY.getY())

@@ -1,6 +1,7 @@
 package com.mbax2dh2.PinballMachine;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * Created by Daniel on 12/02/2015.
@@ -12,7 +13,7 @@ public class Main
     static boolean gravity;
     static
     boolean friction = false;
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         Stage stage = new Stage(graphics,gravity,friction);
         if(graphics)

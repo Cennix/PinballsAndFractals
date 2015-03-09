@@ -38,6 +38,7 @@ public class Pinball extends AMovable
 
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
 

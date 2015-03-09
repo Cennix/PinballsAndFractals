@@ -2,6 +2,7 @@ package com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects;
 
 import com.mbax2dh2.PinballMachine.PinballComponents.Pinball;
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +15,11 @@ public class CollisionMap
 {
 
     public boolean Map [][] = new boolean[480][640];
-
+    BufferedImage image;
     public CollisionMap(String filename) throws IOException
     {
         BufferedImage img = ImageIO.read(new File(filename));
+        image = img;
         for (int i = 0; i < 480; i++)
         {
             for (int j = 0; j < 640; j++)
@@ -44,5 +46,10 @@ public class CollisionMap
         }
         return false;
 
+    }
+
+    public void paint(Graphics graphics)
+    {
+        graphics.drawImage(image,0,0,null);
     }
 }
