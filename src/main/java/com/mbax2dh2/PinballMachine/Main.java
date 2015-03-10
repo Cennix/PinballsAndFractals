@@ -24,6 +24,8 @@ public class Main
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         }
+
+        Stage.run();
     }
 
 }

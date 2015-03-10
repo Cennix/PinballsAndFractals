@@ -15,8 +15,8 @@ import com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects.FailBox;
 public class Stage extends JPanel
 {
     Pinball pinball;
-    Bumper[] bumpers = new Bumper[5];
-    Plunger[] plungers = new Plunger[5];
+    Bumper[] bumpers = new Bumper[16];
+    Plunger[] plungers = new Plunger[8];
     CollisionMap map;
     FailBox endZone;
 
@@ -101,13 +101,20 @@ public class Stage extends JPanel
     @Override
     public void paint(Graphics graphics)
     {
-        pinball.paint(graphics);
+
+        map.paint(graphics);
+        endZone.paint(graphics);
+
         for(Bumper bumpers1: bumpers)
             bumpers1.paint(graphics);
         for(Plunger plunger: plungers)
             plunger.paint(graphics);
-        map.paint(graphics);
-        endZone.paint(graphics);
+
+        pinball.paint(graphics);
     }
 
+    public static void run()
+    {
+
+    }
 }
