@@ -3,6 +3,8 @@ package com.mbax2dh2.PinballMachine.PinballComponents;
 import com.mbax2dh2.PinballMachine.PinballComponents.AMovable;
 import com.mbax2dh2.PinballMachine.PinballComponents.AObject;
 import com.mbax2dh2.PinballMachine.*;
+import com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects.CollisionMap;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import java.awt.*;
 
@@ -33,7 +35,6 @@ public class Pinball extends AMovable
         if(this.getVelocity().magSq() == Constants.MAX_SPEED * Constants.MAX_SPEED)
         {
             this.getVelocity().normalise();
-            this.getVelocity().mult(Constants.MAX_SPEED);
         }
 
     }
@@ -41,7 +42,7 @@ public class Pinball extends AMovable
     @Override
     public void paint(Graphics graphics)
     {
-
+        graphics.drawOval(Constants.toInt(position.getX() - radius), Constants.toInt(position.getY() - radius), Constants.toInt(radius * 2),Constants.toInt(radius * 2));
     }
 
     public boolean collision(AObject object)
@@ -53,11 +54,5 @@ public class Pinball extends AMovable
     {
         return radius;
     }
-
-    public void setRadius(double radius)
-    {
-        this.radius = radius;
-    }
-
 
 }

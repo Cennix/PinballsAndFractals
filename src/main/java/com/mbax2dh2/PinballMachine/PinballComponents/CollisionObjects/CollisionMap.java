@@ -1,6 +1,9 @@
 package com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects;
 
+import com.mbax2dh2.PinballMachine.Constants;
 import com.mbax2dh2.PinballMachine.PinballComponents.Pinball;
+import com.mbax2dh2.PinballMachine.Vector2D;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,8 +17,9 @@ import java.io.IOException;
 public class CollisionMap
 {
 
-    public boolean Map [][] = new boolean[480][640];
+    public boolean Map[][] = new boolean[480][640];
     BufferedImage image;
+
     public CollisionMap(String filename) throws IOException
     {
         BufferedImage img = ImageIO.read(new File(filename));
@@ -24,32 +28,97 @@ public class CollisionMap
         {
             for (int j = 0; j < 640; j++)
             {
-                Map[i][j] = img.getRGB(i,j) == 0;
+                Map[i][j] = img.getRGB(i, j) != -1;
             }
         }
+        System.out.println("Finished making map.");
     }
 
-    public boolean detect(Pinball pinball)
+    public boolean collided(Pinball pinball)
     {
-        for (int i = (int) Math.round(pinball.getX() - pinball.getRadius());
-             i < pinball.getX() + pinball.getRadius();
+        for (int i = Constants.toInt(pinball.position.getX() - pinball.getRadius());
+             i < pinball.position.getX() + pinball.getRadius();
              i++)
         {
-            for (int j = (int) Math.round(pinball.getY() - pinball.getRadius());
-                 j < pinball.getY() + pinball.getRadius();
+            for (int j = Constants.toInt(pinball.position.getY() - pinball.getRadius());
+                 j < pinball.position.getY() + pinball.getRadius();
                  j++)
             {
-                if(Math.sqrt(Math.pow((pinball.getPosition().getX() - i),2) + Math.pow(pinball.getY() - j, 2)) < pinball.getRadius())
-                    return true;
+                if (getMapVal(i, j)) return getMapVal(i, j);
             }
-            
-        }
-        return false;
 
+        }
+
+        return false;
+    }
+
+    public boolean getMapVal(int i, int j)
+    {
+        if (i < 0) i = 0;
+        if (i >= 480) i = 479;
+        if (j < 0) j = 0;
+        if (j >= 640) j = 639;
+        return Map[i][j];
     }
 
     public void paint(Graphics graphics)
     {
-        graphics.drawImage(image,0,0,null);
+        graphics.drawImage(image, 1, 1, null);
     }
+
+    public void update()
+    {
+    }
+
+    public void resolveCollision(Pinball pinball) throws Exception
+    {
+        int startPoint = -1, endPoint = -1;
+        for (int i = 0; i < 361; i++)
+        {
+            if (getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(i))),
+                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(i)))) && startPoint == -1)
+            {
+                startPoint = i;
+            }
+
+        }
+
+        if (startPoint == -1) return;
+        for (int i = startPoint; i < 361; i++)
+        {
+            if (!getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(i))),
+                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(i)))) && endPoint == -1)
+            {
+                endPoint = i;
+            }
+        }
+
+        int normalAngle;
+        if (endPoint > -1)
+        {
+            normalAngle = (startPoint + endPoint) / 2;
+
+        }
+        else
+        {
+
+            normalAngle = startPoint;
+        }
+
+        Vector2D normalVector = new Vector2D(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(normalAngle))),
+                Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(normalAngle))));
+
+        Vector2D newVector = new Vector2D(-2 * (pinball.velocity.dotProd(normalVector) * normalVector.getX() + pinball.velocity.getX()),
+                -2 * (pinball.velocity.dotProd(normalVector) * normalVector.getY() + pinball.velocity.getY()));
+
+        pinball.velocity = newVector;
+        pinball.velocity.normalise();
+        if (pinball.velocity.magSq() > Constants.MAX_SPEED * Constants.MAX_SPEED)
+        {
+            pinball.velocity.mult(Constants.MAX_SPEED);
+        }
+        pinball.update();
+    }
+
+
 }

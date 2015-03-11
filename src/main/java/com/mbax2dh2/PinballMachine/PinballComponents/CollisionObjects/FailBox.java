@@ -13,7 +13,7 @@ import java.awt.*;
 public class FailBox extends AObject
 {
     //if the ball goes into this box then the game terminates
-    Vector2D position1,position2;
+    Vector2D position1, position2;
 
 
     public FailBox(Vector2D pos, Vector2D pos2)
@@ -25,21 +25,21 @@ public class FailBox extends AObject
 
     public boolean collided(Pinball pinball)
     {
-        if(pinball.getX()-pinball.getRadius() <= Math.min(position1.getX(), position2.getX()))
-            return true;
-        if(pinball.getY()-pinball.getRadius() <= Math.min(position1.getY(), position2.getY()))
-            return true;
-        if(pinball.getX()+pinball.getRadius() >= Math.max(position1.getX(), position2.getX()))
-            return true;
-        if(pinball.getY()+pinball.getRadius() >= Math.max(position1.getY(), position2.getY()))
-            return true;
-        return false;
+        return pinball.getX() <= position2.getX() &&
+                pinball.getX() > position1.getX() &&
+                pinball.getY() <= position2.getY() &&
+                pinball.getY() > position1.getY();
     }
 
     public void paint(Graphics graphics)
     {
         graphics.drawRect((int) Math.floor(position1.getX()), (int) Math.floor(position1.getY()),
-                (int)Math.floor(position2.getX() - position1.getX()),(int)Math.floor( position2.getY() - position1.getY()));
+                (int) Math.floor(position2.getX() - position1.getX()), (int) Math.floor(position2.getY() - position1.getY()));
+
+    }
+
+    public void update()
+    {
 
     }
 }

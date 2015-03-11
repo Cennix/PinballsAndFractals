@@ -88,6 +88,8 @@ public class Vector2D
         return(this.X * this.X + this.Y * this.Y);
     }
 
+    public double dotProd(Vector2D other) {return this.getX() * other.getX() + this.getY() * other.getY();}
+
     // normalise the vector
     public void normalise()
     {
@@ -96,7 +98,8 @@ public class Vector2D
         this.Y /= factor;
     }
 
-    public Vector2D clone()
+    @Override
+    public Vector2D clone() throws CloneNotSupportedException
     {
         return new Vector2D(this.getX(), this.getY());
     }
