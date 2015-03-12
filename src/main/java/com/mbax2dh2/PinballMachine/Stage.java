@@ -97,6 +97,7 @@ public class Stage extends JPanel
             endCollided = endZone.collided(pinball);
         }
 
+        System.out.println("Finished run!");
         return new Triple(Constants.gravity, Constants.bounceFactor, numBounces);
     }
 }

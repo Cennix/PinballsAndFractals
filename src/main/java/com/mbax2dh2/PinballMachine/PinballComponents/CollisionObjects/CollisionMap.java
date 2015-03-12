@@ -29,7 +29,9 @@ public class CollisionMap
         {
             for (int j = 0; j < 640; j++)
             {
-                Map[i][j] = img.getRGB(i, j) != -1;
+                if(i == 0 && j == 0) System.out.println("(" + i + "," + j + ") = " + img.getRGB(i,j));
+                if(i == 240 && j == 340) System.out.println("(" + i + "," + j + ") = " + img.getRGB(i,j));
+                Map[i][j] = (img.getRGB(i, j) != -1);
             }
         }
         System.out.println("Finished making map.");
