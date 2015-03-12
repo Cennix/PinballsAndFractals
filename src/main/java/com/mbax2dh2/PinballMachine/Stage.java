@@ -7,6 +7,7 @@ import java.io.IOException;
 import com.mbax2dh2.PinballMachine.PinballComponents.*;
 import com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects.CollisionMap;
 import com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects.FailBox;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import static java.lang.Thread.sleep;
 
@@ -71,23 +72,31 @@ public class Stage extends JPanel
         pinball.paint(graphics);
     }
 
-    public void run() throws InterruptedException
+    public Triple run() throws InterruptedException
     {
-        frame.add(this);
-        while(!endZone.collided(pinball))
+        double numBounces = 0;
+        boolean endCollided = false;
+        if(graphics)frame.add(this);
+        while(!endCollided && numBounces < 500)
         {
-
             if(map.collided(pinball)) try
             {
                 map.resolveCollision(pinball);
+                numBounces++;
             }
             catch (Exception e)
             {
                 e.printStackTrace();
             }
             pinball.update();
-            frame.repaint();
-            sleep(5);
+            if(graphics)
+            {
+                frame.repaint();
+                sleep(1);
+            }
+            endCollided = endZone.collided(pinball);
         }
+
+        return new Triple(Constants.gravity, Constants.bounceFactor, numBounces);
     }
 }

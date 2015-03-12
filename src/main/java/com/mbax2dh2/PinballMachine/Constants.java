@@ -6,11 +6,13 @@ package com.mbax2dh2.PinballMachine;
  */
 public class Constants
 {
-    public static final double gravity = -0.001;
-    public static final double friction = 1.0;
+    public static double gravity = -0.001;
     public static final double MAX_SPEED = 10;
+    public static double bounceFactor = 0.90;
+
     public static int toInt(double val)
     {
-        return (int) Math.floor(val);
+        return (int) Math.round(val);
     }
 }
+

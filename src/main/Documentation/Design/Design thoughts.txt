@@ -1,0 +1,28 @@
+Ideas on how to perform collision detection:
+everything has the info about its own relative position
+everything is stored on a map
+use a single class to resolve collisions(necessary? could be done in pinball class)
+everything modelled as a bounce?
+threshold for just gliding along the wall?
+limit max speed?
+raycasting?
+frame by frame? (slower but allows for more dynamic)
+will be using gravity?
+friction?
+
+possible classes:
+
+Main(initialises and sends results to a file to be processed in matlab)
+endZone(zone in which when the ball arrives, the simulation ends)
+pinball(holds all methods related to the ball)
+bumper(holds all methods related to a bumper object)
+Collision map(holds every possible collision point which is static on the game board)
+stage(the actual game board)
+Plunger(something which increases the ball velocity initially)
+Constants(anything constant which is used in multiple classes)
+Wall(blocks the path of the ball, collision on sides)
+flipper(ball bounces off relative to its position on the flipper)
+trigger(causes a wall to appear when collsiion event happens)
+Vector(a 2d vector with associated methods)
+
+need generics for objects?

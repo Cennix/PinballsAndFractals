@@ -3,6 +3,7 @@ package com.mbax2dh2.PinballMachine.PinballComponents.CollisionObjects;
 import com.mbax2dh2.PinballMachine.Constants;
 import com.mbax2dh2.PinballMachine.PinballComponents.Pinball;
 import com.mbax2dh2.PinballMachine.Vector2D;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -61,22 +62,16 @@ public class CollisionMap
         return Map[i][j];
     }
 
-    public void paint(Graphics graphics)
-    {
-        graphics.drawImage(image, 1, 1, null);
-    }
 
-    public void update()
-    {
-    }
+
 
     public void resolveCollision(Pinball pinball) throws Exception
     {
         int startPoint = -1, endPoint = -1;
         for (int i = 0; i < 361; i++)
         {
-            if (getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(i))),
-                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(i)))) && startPoint == -1)
+            if (getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.sin(Math.toRadians(i))),
+                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.cos(Math.toRadians(i)))) && startPoint == -1)
             {
                 startPoint = i;
             }
@@ -86,8 +81,8 @@ public class CollisionMap
         if (startPoint == -1) return;
         for (int i = startPoint; i < 361; i++)
         {
-            if (!getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(i))),
-                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(i)))) && endPoint == -1)
+            if (!getMapVal(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.sin(Math.toRadians(i))),
+                    Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.cos(Math.toRadians(i)))) && endPoint == -1)
             {
                 endPoint = i;
             }
@@ -105,11 +100,11 @@ public class CollisionMap
             normalAngle = startPoint;
         }
 
-        Vector2D normalVector = new Vector2D(Constants.toInt(pinball.position.getX() + pinball.getRadius() * Math.cos(Math.toRadians(normalAngle))),
-                Constants.toInt(pinball.position.getY() + pinball.getRadius() * Math.sin(Math.toRadians(normalAngle))));
+        Vector2D normalVector = new Vector2D(Constants.toInt(pinball.velocity.getX() + pinball.getRadius() * Math.sin(Math.toRadians(normalAngle))),
+                Constants.toInt(pinball.velocity.getY() + pinball.getRadius() * Math.cos(Math.toRadians(normalAngle))));
 
-        Vector2D newVector = new Vector2D(-2 * (pinball.velocity.dotProd(normalVector) * normalVector.getX() + pinball.velocity.getX()),
-                -2 * (pinball.velocity.dotProd(normalVector) * normalVector.getY() + pinball.velocity.getY()));
+        Vector2D newVector = new Vector2D(Constants.bounceFactor * (-2 * (pinball.velocity.dotProd(normalVector) * normalVector.getX() + pinball.velocity.getX())),
+                Constants.bounceFactor * (-2 * (pinball.velocity.dotProd(normalVector) * normalVector.getY() + pinball.velocity.getY())));
 
         pinball.velocity = newVector;
         pinball.velocity.normalise();
@@ -120,5 +115,9 @@ public class CollisionMap
         pinball.update();
     }
 
+    public void paint(Graphics graphics)
+    {
+        graphics.drawImage(image, 1, 1, null);
+    }
 
 }
