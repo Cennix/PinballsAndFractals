@@ -18,3 +18,5 @@ function GameLoop()
 }
 
 }
+
+http://www.3dkingdoms.com/weekly/weekly.php?a=2 - reflection and bouncing
