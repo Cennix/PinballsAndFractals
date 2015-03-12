@@ -98,6 +98,13 @@ public class Stage extends JPanel
         }
 
         System.out.println("Finished run!");
+        System.out.println("Number of Bounces: " + numBounces);
         return new Triple(Constants.gravity, Constants.bounceFactor, numBounces);
+    }
+
+    public static void clear()
+    {
+        pinball = null;
+        endZone = null;
     }
 }
