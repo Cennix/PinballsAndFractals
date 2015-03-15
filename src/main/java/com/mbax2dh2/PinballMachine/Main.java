@@ -21,7 +21,7 @@ public class Main
     {
         Stage stage = new Stage(graphics,gravity,friction);
 
-        Stage.add(new Pinball(new Vector2D(445, 500), new Vector2D(0,-10), new Vector2D(0, gravity ? -Constants.gravity: 0), 5));
+        Stage.add(new Pinball(new Vector2D(245, 200), new Vector2D(0,-5), new Vector2D(0, gravity ? Constants.gravity: 0), 5));
 
         Stage.add(new FailBox(new Vector2D(135,620), new Vector2D(295, 570)));
 

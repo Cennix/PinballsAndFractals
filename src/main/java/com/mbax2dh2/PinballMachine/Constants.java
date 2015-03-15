@@ -6,7 +6,7 @@ package com.mbax2dh2.PinballMachine;
  */
 public class Constants
 {
-    public static double gravity = -0.001;
+    public static double gravity = 0.001;
     public static final double MAX_SPEED = 10;
     public static double bounceFactor = 0.90;
 
