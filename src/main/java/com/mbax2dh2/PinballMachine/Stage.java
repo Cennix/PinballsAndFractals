@@ -21,6 +21,7 @@ public class Stage extends JPanel
     private static CollisionMap map;
     private static FailBox endZone;
     private JFrame frame;
+    private static PinballImage image;
 
 
 
@@ -32,6 +33,7 @@ public class Stage extends JPanel
         this.gravity = gravity;
         this.friction = friction;
         map = new CollisionMap("src/main/Resources/CollisionMap/Map.jpg");
+        image = new PinballImage("result.jpg", map);
         if(graphics)
         {
             frame = new JFrame("Pinball machine");
@@ -72,10 +74,11 @@ public class Stage extends JPanel
         pinball.paint(graphics);
     }
 
-    public Triple run() throws InterruptedException
+    public Triple run() throws InterruptedException, IOException
     {
         double numBounces = 0;
         boolean endCollided = false;
+        Vector2D prevPosition = pinball.getPosition();
         if(graphics)frame.add(this);
         while(!endCollided && numBounces < 500)
         {
@@ -95,10 +98,13 @@ public class Stage extends JPanel
                 sleep(1);
             }
             endCollided = endZone.collided(pinball);
+            image.drawLine(prevPosition, pinball.getPosition());
+            prevPosition = pinball.getPosition();
         }
 
         System.out.println("Finished run!");
         System.out.println("Number of Bounces: " + numBounces);
+        image.saveImage();
         return new Triple(Constants.gravity, Constants.bounceFactor, numBounces);
     }
 
