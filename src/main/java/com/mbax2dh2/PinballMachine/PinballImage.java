@@ -23,14 +23,15 @@ public class PinballImage
 
         imageFile = new File(fileName);
         image.createGraphics();
-        collisionMap.paint(image.getGraphics());
+        image.getGraphics().setColor(Color.WHITE);
+        //collisionMap.paint(image.getGraphics());
 
 
     }
 
     public void drawLine(Vector2D initial, Vector2D end)
     {
-        image.getGraphics().setColor(Color.BLACK);
+
         image.getGraphics().drawLine(Constants.toInt(initial.getX()), Constants.toInt(initial.getY()),
                 Constants.toInt(end.getX()), Constants.toInt(end.getY()));
     }
