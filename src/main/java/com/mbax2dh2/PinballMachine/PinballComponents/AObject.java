@@ -9,7 +9,7 @@ import javax.swing.*;
  * Updated last on 28/12/2014
  */
 
-public class AObject extends JComponent
+public class AObject extends JComponent // an object within the system
 {
     public Vector2D position;
     public Vector2D velocity;

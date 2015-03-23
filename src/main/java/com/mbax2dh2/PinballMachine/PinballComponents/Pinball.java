@@ -13,7 +13,7 @@ import java.awt.*;
  * Created by Daniel on 24/09/2014.
  * Updated last on 24/09/2014
  */
-public class Pinball extends AMovable
+public class Pinball extends AMovable // a class for the pinball object used in the system
 {
     private double radius;
     public Pinball(double radius)

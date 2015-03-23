@@ -7,7 +7,7 @@ import com.mbax2dh2.PinballMachine.Vector2D;
  * Created by Daniel on 28/12/2014.
  * Updated last on 28/12/2014
  */
-public class Plunger extends AStatic
+public class Plunger extends AStatic // a plunger class(idea,not used)
 {
     private Vector2D minXY;
     private Vector2D maxXY;

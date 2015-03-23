@@ -27,7 +27,7 @@ public class Stage extends JPanel
 
     boolean graphics, gravity, friction = false;
 
-    public Stage(boolean graphics, boolean gravity, boolean friction) throws IOException
+    public Stage(boolean graphics, boolean gravity, boolean friction) throws IOException // initialise the stage
     {
         this.graphics = graphics;
         this.gravity = gravity;
@@ -43,7 +43,7 @@ public class Stage extends JPanel
         }
     }
 
-    public static void add(AObject object) throws Exception
+    public static void add(AObject object) throws Exception // add an object to the stage
     {
 
         if (object instanceof FailBox)
@@ -66,7 +66,7 @@ public class Stage extends JPanel
 
 
     @Override
-    public void paint(Graphics graphics)
+    public void paint(Graphics graphics) // paint the graphics of the system
     {
 
         map.paint(graphics);
@@ -74,7 +74,7 @@ public class Stage extends JPanel
         pinball.paint(graphics);
     }
 
-    public Triple run() throws InterruptedException, IOException
+    public Triple run() throws InterruptedException, IOException // run the simulation
     {
         double numBounces = 0;
         boolean endCollided = false;
@@ -108,7 +108,7 @@ public class Stage extends JPanel
         return new Triple(Constants.gravity, Constants.bounceFactor, numBounces);
     }
 
-    public static void clear()
+    public static void clear() // clear the simulation
     {
         pinball = null;
         endZone = null;

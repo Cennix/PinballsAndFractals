@@ -19,15 +19,12 @@ public class Main
     static boolean friction = false;
     public static void main(String[] args) throws Exception
     {
-        Stage stage = new Stage(graphics,gravity,friction);
+        Stage stage = new Stage(graphics,gravity,friction); // initialise the system
 
-        Stage.add(new Pinball(new Vector2D(440, 500), new Vector2D(0,-5), new Vector2D(0, gravity ? Constants.gravity: 0), 5));
+        Stage.add(new Pinball(new Vector2D(440, 500), new Vector2D(0,-5), new Vector2D(0, gravity ? Constants.gravity: 0), 5)); // add a pinball
+        Stage.add(new FailBox(new Vector2D(135,620), new Vector2D(295, 570))); // add an end zone
 
-        Stage.add(new FailBox(new Vector2D(135,620), new Vector2D(295, 570)));
-
-        PrintWriter out = new PrintWriter(new File("src/main/Resources/Results/result.dat"));
-
-        stage.run();
+        stage.run();// run the simulation
 
 
     }

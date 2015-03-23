@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by Daniel on 03/03/2015.
  * Updated last on 03/03/2015
  */
-public class CollisionMap
+public class CollisionMap // the collision map for the simulation
 {
 
     public boolean Map[][] = new boolean[480][640];

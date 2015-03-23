@@ -11,7 +11,7 @@ import java.awt.*;
  * Created by Daniel on 28/01/2015.
  * Updated last on 28/01/2015
  */
-public class FailBox extends AObject
+public class FailBox extends AObject // the endzone for a simulation, if a ball enters this zone the simulation ends
 {
     //if the ball goes into this box then the game terminates
     Vector2D position1, size;

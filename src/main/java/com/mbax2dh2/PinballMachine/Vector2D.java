@@ -4,7 +4,7 @@ package com.mbax2dh2.PinballMachine;
  * Created by Daniel on 18/09/2014.
  * Updated last on 18/09/2014
  */
-public class Vector2D
+public class Vector2D // my Vector class for 2 dimensional vectors
 {
     double X;
     double Y;

@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by Daniel on 20/03/2015.
  * Updated last on 20/03/2015
  */
-public class PinballImage
+public class PinballImage // the image of the pinball's path (black background, white path
 {
 
     File imageFile;

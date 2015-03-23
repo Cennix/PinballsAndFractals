@@ -7,7 +7,7 @@ import com.mbax2dh2.PinballMachine.Vector2D;
  * Created by Daniel on 18/09/2014.
  * Updated last on 18/09/2014
  */
-public abstract class AStatic extends AObject
+public abstract class AStatic extends AObject // an abstract static object (doesn't move within the system)
 {
 
 

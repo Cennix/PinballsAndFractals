@@ -9,7 +9,7 @@ import java.awt.*;
  * Created by Daniel on 28/12/2014.
  * Updated last on 28/12/2014
  */
-public class Wall extends AStatic
+public class Wall extends AStatic // A wall class (an idea, not used)
 {
     Vector2D minXY, maxXY;
     protected Wall(Vector2D position)

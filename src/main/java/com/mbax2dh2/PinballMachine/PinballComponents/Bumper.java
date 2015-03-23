@@ -9,7 +9,7 @@ import java.awt.*;
  * Created by Daniel on 28/12/2014.
  * Updated last on 28/12/2014
  */
-public class Bumper extends AStatic
+public class Bumper extends AStatic // a bumper object (not used)
 {
     int size;
     double rotation;
